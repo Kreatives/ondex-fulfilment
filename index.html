@@ -7217,6 +7217,71 @@ html body #faq .faq-grid > *{max-width:none!important;}
   .value-cardwrap{margin-left:0!important;}
   .value-card{padding:0!important;}
 }
+
+/* === Klantfeedback voorpagina (okt 2026) === */
+
+/* Hero USP: Google-logo + rating i.p.v. losse tekst */
+html body .hero-checks li.hero-check-google{gap:8px!important;}
+html body .hero-google-logo{width:20px!important;height:20px!important;flex:0 0 20px!important;display:block!important;}
+
+/* Knoppen: hero-CTA's dezelfde volledig ronde radius als 'Offerte op maat' */
+html body .hero-actions .hero-primary,
+html body .hero-actions .hero-secondary{border-radius:999px!important;}
+
+/* Hero order-kaart: subtiel 3D-effect, zelfde formaat/design behouden */
+html body .hero-order-3d{
+  transform:perspective(1500px) rotateY(-6deg) rotateX(1.5deg)!important;
+  transform-style:preserve-3d!important;
+  transition:transform .55s cubic-bezier(.16,1,.3,1),box-shadow .55s ease!important;
+  will-change:transform!important;
+}
+html body .hero-order-3d:hover{
+  transform:perspective(1500px) rotateY(-2.5deg) rotateX(.5deg) translateY(-6px)!important;
+}
+@media(max-width:1080px){
+  html body .hero-order-3d{transform:none!important;}
+  html body .hero-order-3d:hover{transform:translateY(-4px)!important;}
+}
+
+/* Klantportaal-knop: iets groter voor meer nadruk */
+html body .actions > .portal-mini{width:148px!important;height:44px!important;border-radius:13px!important;}
+html body .actions > .portal-mini svg{width:17px!important;height:17px!important;flex:0 0 17px!important;}
+html body .actions > .portal-mini span{font-size:12.5px!important;}
+@media(max-width:1180px){html body .actions > .portal-mini{width:134px!important;height:42px!important;}}
+
+/* FAQ: compacter en gecentreerd */
+html body #faq .faq-grid{
+  grid-template-columns:1fr!important;
+  gap:34px!important;
+  max-width:840px!important;
+  margin-left:auto!important;margin-right:auto!important;
+  text-align:center!important;
+}
+html body #faq .faq-grid > div:first-child p{margin-left:auto!important;margin-right:auto!important;}
+html body #faq .faq-list{text-align:left!important;}
+html body #faq .faq-list details{padding:18px 0!important;}
+html body #faq .faq-list summary{font-size:16px!important;}
+
+/* Persoonlijk-contactkaart volledig klikbaar maken */
+html body .pro-person{position:relative!important;}
+html body .pro-person-link{position:absolute!important;inset:0!important;z-index:6!important;border-radius:inherit!important;cursor:pointer!important;}
+html body .pro-person{cursor:pointer!important;}
+
+/* Hover: pijltje rechts volgt de tekstkleur (donker/stijlkleur) i.p.v. grijs */
+html body .reviews-summary a span,
+html body .value-link span{transition:transform .25s ease,color .25s ease!important;}
+html body .reviews-summary a:hover span{color:#101416!important;}
+html body .value-link:hover span{color:#08B6C6!important;}
+
+/* Klantenservice-widget: offline-status (grijze stip + gedempte tekst) */
+html body #support.is-offline .sw-dot{background:#9aa6ab!important;}
+html body #support.is-offline .sw-head-copy small,
+html body #support.is-offline .sw-launch-copy small{color:#9aa6ab!important;}
+
+/* Widget verbergen zodra de footer in beeld is, zodat hij de footerlinks
+   en de 'Offerte aanvragen'-knop niet langer overlapt/blokkeert */
+html body #support{transition:opacity .3s ease,transform .3s ease!important;}
+html body #support.sw-at-footer{opacity:0!important;pointer-events:none!important;transform:translateY(14px)!important;}
 </style>
 </head>
 <body class="ondex home">
@@ -7297,7 +7362,7 @@ html body #faq .faq-grid > *{max-width:none!important;}
       </div>
 
       <ul class="hero-checks" aria-label="Waarom Ondex">
-        <li><svg class="hero-check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Ondex Fulfilment</li>
+        <li class="hero-check-google"><img class="hero-google-logo" src="assets/svg/asset-6d399ca07e20.svg" alt="Google" width="20" height="20">4,9/5 op Google</li>
         <li><svg class="hero-check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>14+ jaar e-commerce ervaring</li>
         <li><svg class="hero-check" viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9"/></svg>Nederlandse fulfilmentpartner</li>
       </ul>
@@ -7991,6 +8056,7 @@ html body #faq .faq-grid > *{max-width:none!important;}
 <div class="pro">
   <div class="pro-head">
     <div class="pro-person ondx-status-online" id="ondx-person-status">
+      <a class="pro-person-link" href="/contact" aria-label="Neem persoonlijk contact op met Ondex"></a>
       <div class="pro-photo">
         <img src="assets/images/asset-e3bb13b493cc.webp" alt="Samir van Ondex Fulfilment" width="1254" height="1254" loading="lazy" decoding="async">
       </div>
@@ -8113,7 +8179,6 @@ html body #faq .faq-grid > *{max-width:none!important;}
     <div class="footer-bottom">
       <span>© 2026 Ondex Fulfilment B.V. <span class="footer-company-sep">·</span> KvK 42073805</span>
       <nav><a href="/algemene-voorwaarden/">Algemene voorwaarden</a><a href="/privacy/">Privacy</a><a href="/cookies/">Cookies</a></nav>
-      <a class="footer-back ondex-footer-top ondex-footer-arrow-only" href="#top" aria-label="Naar boven" title="Naar boven"><span aria-hidden="true">↑</span></a>
     </div>
   </div>
 </footer>
@@ -8512,10 +8577,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
     person.classList.toggle('ondx-status-online',online);
     person.classList.toggle('ondx-status-offline',!online);
+
+    var support=document.getElementById('support');
+    if(support){
+      support.classList.toggle('is-offline',!online);
+      var headCopy=support.querySelector('.sw-head-copy small');
+      if(headCopy) headCopy.textContent=online?'Nu online':'Nu offline';
+      var launchCopy=support.querySelector('.sw-launch-copy small');
+      if(launchCopy) launchCopy.textContent=online?'We zijn nu online':'Laat een bericht achter';
+    }
   }
 
   updateOndexContactStatus();
   setInterval(updateOndexContactStatus,60000);
+})();
+
+/* Verberg de vaste contactwidget zodra de footer in beeld komt, zodat hij
+   de footerlinks en 'Offerte aanvragen'-knop niet overlapt. */
+(function(){
+  var support=document.getElementById('support');
+  var footer=document.querySelector('.footer');
+  if(!support||!footer||!('IntersectionObserver' in window)) return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      support.classList.toggle('sw-at-footer',e.isIntersecting);
+    });
+  },{rootMargin:'0px 0px -40px 0px'});
+  io.observe(footer);
 })();
 
 
@@ -8539,15 +8627,6 @@ document.addEventListener('click', function (event) {
   if (widgetButton) widgetButton.setAttribute('aria-expanded', 'true');
 }, true);
 
-(function(){
-  const b=document.querySelector('.ondex-footer-top');
-  if(!b)return;
-  b.addEventListener('click',function(e){
-    e.preventDefault();
-    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    window.scrollTo({top:0,behavior:reduced?'auto':'smooth'});
-  });
-})();
 
 
 </script>
