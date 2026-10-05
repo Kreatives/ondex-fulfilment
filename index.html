@@ -7243,24 +7243,27 @@ html body .hero-order-3d:hover{
   html body .hero-order-3d:hover{transform:translateY(-4px)!important;}
 }
 
-/* Klantportaal-knop: iets groter voor meer nadruk */
-html body .actions > .portal-mini{width:148px!important;height:44px!important;border-radius:13px!important;}
-html body .actions > .portal-mini svg{width:17px!important;height:17px!important;flex:0 0 17px!important;}
-html body .actions > .portal-mini span{font-size:12.5px!important;}
-@media(max-width:1180px){html body .actions > .portal-mini{width:134px!important;height:42px!important;}}
+/* Klantportaal-knop: grotere tekst + volledig ronde radius */
+html body .actions > .portal-mini{width:auto!important;min-width:0!important;height:46px!important;padding:0 18px!important;border-radius:999px!important;}
+html body .actions > .portal-mini svg{width:19px!important;height:19px!important;flex:0 0 19px!important;}
+html body .actions > .portal-mini span{font-size:15px!important;}
+@media(max-width:1180px){html body .actions > .portal-mini{height:42px!important;padding:0 15px!important;}
+  html body .actions > .portal-mini span{font-size:14px!important;}}
 
-/* FAQ: compacter en gecentreerd */
+/* FAQ: tekst links, FAQ's rechts, alles links uitgelijnd */
 html body #faq .faq-grid{
-  grid-template-columns:1fr!important;
-  gap:34px!important;
-  max-width:840px!important;
+  grid-template-columns:.72fr 1.28fr!important;
+  gap:60px!important;
+  max-width:none!important;
   margin-left:auto!important;margin-right:auto!important;
-  text-align:center!important;
+  text-align:left!important;
 }
-html body #faq .faq-grid > div:first-child p{margin-left:auto!important;margin-right:auto!important;}
+html body #faq .faq-grid > div:first-child,
+html body #faq .faq-grid > div:first-child p,
+html body #faq .faq-grid > div:first-child h2{text-align:left!important;margin-left:0!important;margin-right:0!important;}
 html body #faq .faq-list{text-align:left!important;}
-html body #faq .faq-list details{padding:18px 0!important;}
-html body #faq .faq-list summary{font-size:16px!important;}
+html body #faq .faq-list details{padding:20px 0!important;}
+@media(max-width:860px){html body #faq .faq-grid{grid-template-columns:1fr!important;gap:30px!important;}}
 
 /* Persoonlijk-contactkaart volledig klikbaar maken */
 html body .pro-person{position:relative!important;}
@@ -7278,10 +7281,25 @@ html body #support.is-offline .sw-dot{background:#9aa6ab!important;}
 html body #support.is-offline .sw-head-copy small,
 html body #support.is-offline .sw-launch-copy small{color:#9aa6ab!important;}
 
+/* Widget: iets meer naar rechts + popup iets hoger (grotere tussenruimte) */
+html body .support-widget{right:14px!important;gap:20px!important;}
+
 /* Widget verbergen zodra de footer in beeld is, zodat hij de footerlinks
    en de 'Offerte aanvragen'-knop niet langer overlapt/blokkeert */
 html body #support{transition:opacity .3s ease,transform .3s ease!important;}
 html body #support.sw-at-footer{opacity:0!important;pointer-events:none!important;transform:translateY(14px)!important;}
+
+/* Footer boven de (fixed) widget leggen, zodat footerlinks altijd klikbaar zijn */
+html body .footer{position:relative!important;z-index:201!important;}
+
+/* Value-tabs: actieve tab in huisstijl-blauw (witte tekst) + blauw bij hover */
+html body .value-tabs button.is-active{background:#08B6C6!important;border-color:#08B6C6!important;color:#fff!important;}
+html body .value-tabs button.is-active:before{background:#fff!important;box-shadow:none!important;}
+html body .value-tabs button:hover{background:#08B6C6!important;border-color:#08B6C6!important;color:#fff!important;}
+html body .value-tabs button:hover:before{background:#fff!important;}
+
+/* Alle knoppen volledig rond */
+html body .reviews-summary > a{border-radius:999px!important;}
 </style>
 </head>
 <body class="ondex home">
