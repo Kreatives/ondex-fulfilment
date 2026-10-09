@@ -7102,7 +7102,15 @@ html body .pro-person-copy .ondx-personal-contact-label{
 /* Hero: nieuwe cinematic achtergrond */
 html body .hero-bg{
   background:url("assets/images/hero-bg.png") center center/cover no-repeat!important;
+  overflow:hidden!important;
 }
+/* Hero: achtergrondvideo achter de overlay (tekstcontrast blijft) */
+html body .hero-video{
+  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+  object-fit:cover!important;object-position:center 42%!important;display:block!important;
+  pointer-events:none!important;
+}
+@media(max-width:760px){html body .hero-video{display:none!important;}}
 
 /* Contact-widget in referentie-stijl (horizontale pill + uitklappaneel) */
 html body .support-widget{
@@ -7245,10 +7253,10 @@ html body .hero-order-3d:hover{
   html body .hero-order-3d:hover{transform:translateY(-4px)!important;}
 }
 
-/* Klantportaal-knop: grotere tekst + volledig ronde radius */
-html body .actions > .portal-mini{width:auto!important;min-width:0!important;height:46px!important;padding:0 18px!important;border-radius:999px!important;}
-html body .actions > .portal-mini svg{width:19px!important;height:19px!important;flex:0 0 19px!important;}
-html body .actions > .portal-mini span{font-size:15px!important;}
+/* Klantportaal-knop: grotere tekst + volledig ronde radius + nette uitlijning icoon/tekst */
+html body .actions > .portal-mini{width:auto!important;min-width:0!important;height:46px!important;padding:0 18px!important;border-radius:999px!important;display:inline-flex!important;align-items:center!important;gap:9px!important;line-height:1!important;}
+html body .actions > .portal-mini svg{width:19px!important;height:19px!important;flex:0 0 19px!important;display:block!important;align-self:center!important;position:relative!important;top:0!important;}
+html body .actions > .portal-mini span{font-size:15px!important;line-height:1!important;display:inline-flex!important;align-items:center!important;}
 @media(max-width:1180px){html body .actions > .portal-mini{height:42px!important;padding:0 15px!important;}
   html body .actions > .portal-mini span{font-size:14px!important;}}
 
@@ -7919,18 +7927,27 @@ html body main h2{font-size:clamp(30px,3vw,44px)!important;font-weight:800!impor
 html body main h3{font-size:clamp(20px,1.5vw,23px)!important;font-weight:750!important;letter-spacing:-.02em!important;line-height:1.2!important;}
 html body main p{font-size:16px!important;line-height:1.7!important;}
 html body main .lead{font-size:18px!important;line-height:1.65!important;}
-/* CTA's: EEN vorm/maat overal; kleur adaptief (licht vs donker via site.css) */
 html body main .btn{min-height:52px!important;padding:0 24px!important;border-radius:999px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;font-size:14px!important;font-weight:800!important;letter-spacing:-.01em!important;line-height:1!important;width:auto!important;}
 html body main .btn-primary,html body main .btn-blue,html body main .quote{background:#08B6C6!important;color:#fff!important;border:0!important;}
 html body main .btn-primary:hover,html body main .btn-blue:hover,html body main .quote:hover{background:#079EAD!important;}
-/* Container: EEN max-width, gelijk aan header/footer */
 html body main .container{width:min(1240px,calc(100% - 48px))!important;margin-inline:auto!important;}
 @media(min-width:1300px){html body main .container{width:min(1440px,calc(100% - 64px))!important;}}
-html body main [data-reveal]{opacity:1!important;transform:none!important;}
+/* Highlights: cyaan accent in koppen (WCAG-contrast: donkerder op licht, helder op donker) */
+html body main .page-hero h1 span{color:#078E9D!important;}
+html body main .page-hero--image h1 span{color:#35D3DF!important;}
+/* Donkere content-secties: koppen leesbaar wit, accent helder cyaan (WCAG) */
+html body main .showcase-head h2,html body main .showcase h3,html body main .cta-band h2,html body main .cta-band h3{color:#fff!important;}
+html body main .showcase-head h2 span,html body main .cta-band h2 span{color:#35D3DF!important;}
+html body main .cta-band p{color:#b2bdc1!important;}
+/* Scroll-reveal animaties (fade + slide-up); alleen met JS actief, geen flash */
+html.reveal-on body main [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1);will-change:opacity,transform;}
+html.reveal-on body main [data-reveal].is-visible{opacity:1;transform:none;}
+@media(prefers-reduced-motion:reduce){html.reveal-on body main [data-reveal]{opacity:1!important;transform:none!important;transition:none!important;}}
 
 </style>
 </head>
 <body class="ondex">
+<script>document.documentElement.classList.add('reveal-on')</script>
 
 
 <div class="topline">
@@ -7993,7 +8010,7 @@ html body main [data-reveal]{opacity:1!important;transform:none!important;}
   <section class="page-hero">
     <div class="container">
       <span class="pill-label">Over Ondex</span>
-      <h1>Logistiek zonder kopzorgen, met een mens aan de lijn.</h1>
+      <h1>Logistiek zonder kopzorgen, <span>met een mens aan de lijn.</span></h1>
       <p class="lead">Ondex combineert de kwaliteit en techniek van een grote fulfilmentpartij met de menselijke benadering van een partner op afstand. Jouw spullen worden net zo netjes ingepakt alsof je het zelf doet, alleen heb je er nooit meer buikpijn van.</p>
       <div class="sa-actions">
         <a class="btn btn-primary" href="/contact">Plan een kennismaking <span aria-hidden="true">→</span></a>
@@ -8715,6 +8732,29 @@ document.addEventListener('click', function (event) {
 })();
 </script>
 
+<script>
+/* Scroll-reveal: fade + slide-up op [data-reveal] (content-secties subpagina's) */
+(function(){
+  function go(){
+    var els=[].slice.call(document.querySelectorAll('[data-reveal]'));
+    if(!els.length)return;
+    if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){
+      els.forEach(function(e){e.classList.add('is-visible');});return;
+    }
+    var io=new IntersectionObserver(function(ens){
+      ens.forEach(function(x){
+        if(x.isIntersecting){
+          var d=parseInt(x.target.getAttribute('data-reveal-delay')||'0',10)||0;
+          setTimeout(function(){x.target.classList.add('is-visible');},Math.min(d,420));
+          io.unobserve(x.target);
+        }
+      });
+    },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+  }
+  if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+})();
+</script>
 
 </body>
 </html>
