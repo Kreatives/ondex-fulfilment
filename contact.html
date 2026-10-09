@@ -5,17 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Contact & offerte aanvragen | Ondex Fulfilment</title>
 <meta name="description" content="Vraag vrijblijvend een fulfilmentofferte aan bij Ondex. Deel je volumes en verkoopkanalen en ontvang binnen 24 uur een persoonlijk voorstel.">
-<meta name="robots" content="index,follow,max-image-preview:large">
-<link rel="canonical" href="https://ondexfulfilment.nl/contact/">
-<meta property="og:locale" content="nl_NL">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Ondex Fulfilment">
-<meta property="og:title" content="Contact &amp; offerte aanvragen | Ondex Fulfilment">
-<meta property="og:description" content="Vraag vrijblijvend een fulfilmentvoorstel aan. Binnen één werkdag neemt Ondex persoonlijk contact met je op.">
-<meta property="og:url" content="https://ondexfulfilment.nl/contact/">
-<meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://ondexfulfilment.nl/#organization","name":"Ondex Fulfilment","url":"https://ondexfulfilment.nl/","email":"info@ondexfulfilment.nl","telephone":"+31 85 060 2274","address":{"@type":"PostalAddress","streetAddress":"Aalsbergen 10","postalCode":"6942 SE","addressLocality":"Didam","addressCountry":"NL"},"sameAs":["https://www.linkedin.com/company/ondexfulfilment","https://www.instagram.com/ondexfulfilment.nl/","https://www.tiktok.com/@ondexfulfilment.nl"]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ContactPage","@id":"https://ondexfulfilment.nl/contact/#webpage","url":"https://ondexfulfilment.nl/contact/","name":"Contact & offerte aanvragen | Ondex Fulfilment","description":"Vraag vrijblijvend een fulfilmentvoorstel aan bij Ondex Fulfilment.","isPartOf":{"@id":"https://ondexfulfilment.nl/#website"},"about":{"@id":"https://ondexfulfilment.nl/#organization"}}</script>
 <link rel="icon" type="image/svg+xml" sizes="any" href="assets/svg/asset-0dfa7847a272.svg">
 <link rel="shortcut icon" href="assets/svg/asset-0dfa7847a272.svg">
 
@@ -7113,7 +7102,15 @@ html body .pro-person-copy .ondx-personal-contact-label{
 /* Hero: nieuwe cinematic achtergrond */
 html body .hero-bg{
   background:url("assets/images/hero-bg.png") center center/cover no-repeat!important;
+  overflow:hidden!important;
 }
+/* Hero: achtergrondvideo achter de overlay (tekstcontrast blijft) */
+html body .hero-video{
+  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+  object-fit:cover!important;object-position:center 42%!important;display:block!important;
+  pointer-events:none!important;
+}
+@media(max-width:760px){html body .hero-video{display:none!important;}}
 
 /* Contact-widget in referentie-stijl (horizontale pill + uitklappaneel) */
 html body .support-widget{
@@ -7256,10 +7253,10 @@ html body .hero-order-3d:hover{
   html body .hero-order-3d:hover{transform:translateY(-4px)!important;}
 }
 
-/* Klantportaal-knop: grotere tekst + volledig ronde radius */
-html body .actions > .portal-mini{width:auto!important;min-width:0!important;height:46px!important;padding:0 18px!important;border-radius:999px!important;}
-html body .actions > .portal-mini svg{width:19px!important;height:19px!important;flex:0 0 19px!important;}
-html body .actions > .portal-mini span{font-size:15px!important;}
+/* Klantportaal-knop: grotere tekst + volledig ronde radius + nette uitlijning icoon/tekst */
+html body .actions > .portal-mini{width:auto!important;min-width:0!important;height:46px!important;padding:0 18px!important;border-radius:999px!important;display:inline-flex!important;align-items:center!important;gap:9px!important;line-height:1!important;}
+html body .actions > .portal-mini svg{width:19px!important;height:19px!important;flex:0 0 19px!important;display:block!important;align-self:center!important;position:relative!important;top:0!important;}
+html body .actions > .portal-mini span{font-size:15px!important;line-height:1!important;display:inline-flex!important;align-items:center!important;}
 @media(max-width:1180px){html body .actions > .portal-mini{height:42px!important;padding:0 15px!important;}
   html body .actions > .portal-mini span{font-size:14px!important;}}
 
@@ -7294,8 +7291,10 @@ html body #support.is-offline .sw-dot{background:#9aa6ab!important;}
 html body #support.is-offline .sw-head-copy small,
 html body #support.is-offline .sw-launch-copy small{color:#9aa6ab!important;}
 
-/* Widget: iets meer naar rechts + popup iets hoger (grotere tussenruimte) */
-html body .support-widget{right:14px!important;gap:20px!important;}
+/* Widget: helemaal rechts. Panel absoluut zodat het geen 360px breedte
+   reserveert en de launcher-knop tegen de rechterrand komt. */
+html body .support-widget{right:10px!important;bottom:20px!important;gap:16px!important;align-items:flex-end!important;}
+html body .support-widget > .sw-panel{position:absolute!important;right:0!important;left:auto!important;top:auto!important;bottom:calc(100% + 16px)!important;margin:0!important;}
 
 /* Widget verbergen zodra de footer in beeld is, zodat hij de footerlinks
    en de 'Offerte aanvragen'-knop niet langer overlapt/blokkeert */
@@ -7897,6 +7896,7 @@ html body .support-widget > .sw-panel{position:absolute!important;right:0!import
 </style>
 </head>
 <body class="ondex">
+<script>document.documentElement.classList.add('reveal-on')</script>
 
 
 <div class="topline">
@@ -7916,7 +7916,7 @@ html body .support-widget > .sw-panel{position:absolute!important;right:0!import
 <a href="/integraties">Integraties</a>
 <a href="/tarieven">Tarieven</a>
 <a href="/over-ondex">Over Ondex</a>
-<a href="/contact" aria-current="page">Contact</a>
+<a aria-current="page" href="/contact">Contact</a>
 <div class="mobile-menu-actions">
   <a class="mobile-menu-portal" href="https://portal.ondexfulfilment.nl" rel="noopener" target="_blank">Klantportaal</a>
   <a class="mobile-menu-quote" href="/contact">Offerte op maat <span aria-hidden="true">→</span></a>
@@ -8573,6 +8573,29 @@ document.addEventListener('click', function (event) {
 })();
 </script>
 
+<script>
+/* Scroll-reveal: fade + slide-up op [data-reveal] (content-secties subpagina's) */
+(function(){
+  function go(){
+    var els=[].slice.call(document.querySelectorAll('[data-reveal]'));
+    if(!els.length)return;
+    if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches){
+      els.forEach(function(e){e.classList.add('is-visible');});return;
+    }
+    var io=new IntersectionObserver(function(ens){
+      ens.forEach(function(x){
+        if(x.isIntersecting){
+          var d=parseInt(x.target.getAttribute('data-reveal-delay')||'0',10)||0;
+          setTimeout(function(){x.target.classList.add('is-visible');},Math.min(d,420));
+          io.unobserve(x.target);
+        }
+      });
+    },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+  }
+  if(document.readyState!=='loading')go();else document.addEventListener('DOMContentLoaded',go);
+})();
+</script>
 
 <script>(function(){
 var benefitsPanel=document.querySelector('.cl-benefits-panel');
