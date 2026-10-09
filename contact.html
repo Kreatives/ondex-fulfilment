@@ -7884,6 +7884,13 @@ html body .reviews-summary > a{border-radius:999px!important;}
 @keyframes clSubmitWait{to{transform:rotate(360deg)}}
 @media(max-width:620px){.cl-form-error{margin:20px 20px 0}}
 @media(prefers-reduced-motion:reduce){.cl-submit[aria-busy="true"]>b{animation:none}}
+
+/* === Contact labels: normale tracking (zelfde lettertype-look, geen spaced-caps) === */
+.cl-contact-option>small,.cl-benefits-panel>small,.cl-form-card>header small,.cl-contact-availability small,.cl-portal-btn-copy small{letter-spacing:.02em!important;}
+/* === Contact-kaarten: duidelijke hierarchie — label+kop als groep, content als aparte groep === */
+.cl-contact-option>small{margin-bottom:13px!important;}
+.cl-contact-option h2,.cl-contact-option h3{margin-top:0!important;}
+.cl-contact-option h2 + *,.cl-contact-option h3 + *{margin-top:30px!important;}
 </style>
 <style id="ondex-contact-maxwidth-fix">
 /* Content-container exact gelijk aan de homepage/header/footer (uitlijning) */
