@@ -1965,8 +1965,8 @@ background-size:auto,52px 52px,52px 52px;pointer-events:none;}
   inset:0;
   z-index:-2;
   background:
-    linear-gradient(90deg,rgba(3,9,13,.94) 0%,rgba(3,9,13,.87) 43%,rgba(3,9,13,.58) 72%,rgba(3,9,13,.72) 100%),
-    linear-gradient(180deg,rgba(3,9,13,.18),rgba(3,9,13,.50));}
+    linear-gradient(90deg,rgba(3,9,13,.90) 0%,rgba(3,9,13,.86) 38%,rgba(3,9,13,.66) 50%,rgba(3,9,13,.22) 66%,rgba(3,9,13,.30) 100%),
+    linear-gradient(180deg,rgba(3,9,13,.08),rgba(3,9,13,.26));}
 .hero-inner{position:relative;z-index:2;
   display:grid;
   grid-template-columns:minmax(0,1.06fr) minmax(430px,.94fr);
@@ -7932,21 +7932,21 @@ html body main .btn-primary,html body main .btn-blue,html body main .quote{backg
 html body main .btn-primary:hover,html body main .btn-blue:hover,html body main .quote:hover{background:#079EAD!important;}
 html body main .container{width:min(1240px,calc(100% - 48px))!important;margin-inline:auto!important;}
 @media(min-width:1300px){html body main .container{width:min(1440px,calc(100% - 64px))!important;}}
-/* Highlights: merk-cyaan op licht, helder op donker */
+/* Highlights in koppen: merk-cyaan op licht, helder op donker */
 html body main .page-hero h1 span{color:#08B6C6!important;}
 html body main .page-hero--image h1 span{color:#4bdde7!important;}
-/* === WCAG: ALLE koppen/labels op donkere content-secties leesbaar === */
-html body main .mp-section h2,html body main .mp-section h3,
-html body main .person-band__body h2,html body main .person-band__body h3,
-html body main .showcase-head h2,html body main .showcase h3,
-html body main .cta-band h2,html body main .cta-band h3{color:#fff!important;}
+/* Eyebrow-pills consistent met homepage: cyaan tekst op licht-cyaan pill */
+html body main .pill-label{background:#eafbfc!important;color:#079ead!important;}
+html body main .page-hero--image .pill-label{background:rgba(255,255,255,.15)!important;color:#fff!important;}
+/* WCAG: koppen op donkere content-secties leesbaar wit, accent helder cyaan */
+html body main .mp-section h2,html body main .mp-section h3,html body main .person-band__body h2,html body main .person-band__body h3,html body main .showcase-head h2,html body main .showcase h3,html body main .cta-band h2,html body main .cta-band h3{color:#fff!important;}
 html body main .mp-section .eyebrow{color:#4bdde7!important;}
 html body main .showcase-head h2 span,html body main .cta-band h2 span{color:#4bdde7!important;}
 html body main .cta-band p{color:#b2bdc1!important;}
-/* Scroll-reveal animaties (fade + slide-up); alleen met JS actief, geen flash */
+/* Scroll-reveal animaties (fade + slide-up); alleen met JS, geen flash */
 html.reveal-on body main [data-reveal]{opacity:0;transform:translateY(26px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1);will-change:opacity,transform;}
 html.reveal-on body main [data-reveal].is-visible{opacity:1;transform:none;}
-/* Kaart-grids: wave/golf — gestaggerd inschuiven zodra de sectie zichtbaar wordt */
+/* Kaart-grids: wave/golf — gestaggerd inschuiven */
 html.reveal-on body main [data-reveal] .showcase-grid>*,html.reveal-on body main [data-reveal] .mp-grid>*,html.reveal-on body main [data-reveal] .eco>*{opacity:0;transform:translateY(26px);transition:opacity .6s ease,transform .72s cubic-bezier(.16,1,.3,1);}
 html.reveal-on body main [data-reveal].is-visible .showcase-grid>*,html.reveal-on body main [data-reveal].is-visible .mp-grid>*,html.reveal-on body main [data-reveal].is-visible .eco>*{opacity:1;transform:none;}
 html.reveal-on body main [data-reveal].is-visible .showcase-grid>*:nth-child(1),html.reveal-on body main [data-reveal].is-visible .mp-grid>*:nth-child(1),html.reveal-on body main [data-reveal].is-visible .eco>*:nth-child(1){transition-delay:.16s;}
