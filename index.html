@@ -7281,8 +7281,10 @@ html body #support.is-offline .sw-dot{background:#9aa6ab!important;}
 html body #support.is-offline .sw-head-copy small,
 html body #support.is-offline .sw-launch-copy small{color:#9aa6ab!important;}
 
-/* Widget: iets meer naar rechts + popup iets hoger (grotere tussenruimte) */
-html body .support-widget{right:14px!important;gap:20px!important;}
+/* Widget: helemaal rechts. Panel absoluut zodat het geen 360px breedte
+   reserveert en de launcher-knop tegen de rechterrand komt. */
+html body .support-widget{right:10px!important;bottom:20px!important;gap:16px!important;align-items:flex-end!important;}
+html body .support-widget > .sw-panel{position:absolute!important;right:0!important;left:auto!important;top:auto!important;bottom:calc(100% + 16px)!important;margin:0!important;}
 
 /* Widget verbergen zodra de footer in beeld is, zodat hij de footerlinks
    en de 'Offerte aanvragen'-knop niet langer overlapt/blokkeert */

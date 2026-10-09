@@ -7283,8 +7283,10 @@ html body #support.is-offline .sw-dot{background:#9aa6ab!important;}
 html body #support.is-offline .sw-head-copy small,
 html body #support.is-offline .sw-launch-copy small{color:#9aa6ab!important;}
 
-/* Widget: iets meer naar rechts + popup iets hoger (grotere tussenruimte) */
-html body .support-widget{right:14px!important;gap:20px!important;}
+/* Widget: helemaal rechts. Panel absoluut zodat het geen 360px breedte
+   reserveert en de launcher-knop tegen de rechterrand komt. */
+html body .support-widget{right:10px!important;bottom:20px!important;gap:16px!important;align-items:flex-end!important;}
+html body .support-widget > .sw-panel{position:absolute!important;right:0!important;left:auto!important;top:auto!important;bottom:calc(100% + 16px)!important;margin:0!important;}
 
 /* Widget verbergen zodra de footer in beeld is, zodat hij de footerlinks
    en de 'Offerte aanvragen'-knop niet langer overlapt/blokkeert */
@@ -7523,7 +7525,7 @@ main /* Ondex Fulfilment — gedeelde stijl voor de losse pagina's.
   font-size: var(--text-hero);
   max-width: 18ch;
   margin: 20px 0 0;
-}main .page-hero .lead{ margin-top: 24px; }main .page-hero .hero-actions{ display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }main /* Hero met dashboard ernaast */
+}main .page-hero .lead{ margin-top: 24px; }main .page-hero .sa-actions{ display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }main /* Hero met dashboard ernaast */
 .hero-split{ display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center; }main .hero-split .page-hero-copy h1{ max-width: 16ch; }main /* Dashboard-widget (donker, main live) */
 .dash{
   position: relative;
@@ -7911,11 +7913,20 @@ main /* Ondex Fulfilment — gedeelde stijl voor de losse pagina's.
 }
 
 
-/* === Standalone-content in homepage-stijl === */
-main .page-hero h1{font-weight:850!important;letter-spacing:-.055em!important;}
-main h2{font-weight:800!important;letter-spacing:-.04em!important;}
-main .page-hero{padding-top:118px!important;}
-main [data-reveal]{opacity:1!important;transform:none!important;}
+/* === Ondex consistent designsysteem: content exact in homepage-stijl === */
+html body main .page-hero h1{font-size:clamp(44px,4.6vw,66px)!important;font-weight:850!important;letter-spacing:-.05em!important;line-height:1.02!important;}
+html body main h2{font-size:clamp(30px,3vw,44px)!important;font-weight:800!important;letter-spacing:-.04em!important;line-height:1.06!important;}
+html body main h3{font-size:clamp(20px,1.5vw,23px)!important;font-weight:750!important;letter-spacing:-.02em!important;line-height:1.2!important;}
+html body main p{font-size:16px!important;line-height:1.7!important;}
+html body main .lead{font-size:18px!important;line-height:1.65!important;}
+/* CTA's: EEN vorm/maat overal; kleur adaptief (licht vs donker via site.css) */
+html body main .btn{min-height:52px!important;padding:0 24px!important;border-radius:999px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:10px!important;font-size:14px!important;font-weight:800!important;letter-spacing:-.01em!important;line-height:1!important;width:auto!important;}
+html body main .btn-primary,html body main .btn-blue,html body main .quote{background:#08B6C6!important;color:#fff!important;border:0!important;}
+html body main .btn-primary:hover,html body main .btn-blue:hover,html body main .quote:hover{background:#079EAD!important;}
+/* Container: EEN max-width, gelijk aan header/footer */
+html body main .container{width:min(1240px,calc(100% - 48px))!important;margin-inline:auto!important;}
+@media(min-width:1300px){html body main .container{width:min(1440px,calc(100% - 64px))!important;}}
+html body main [data-reveal]{opacity:1!important;transform:none!important;}
 
 </style>
 </head>
@@ -7985,7 +7996,7 @@ main [data-reveal]{opacity:1!important;transform:none!important;}
         <span class="pill-label">Integraties</span>
         <h1>Koppel je kanalen, wij regelen de logistiek erachter.</h1>
         <p class="lead">Ondex sluit vlekkeloos aan op je webshop, marketplaces en vervoerders. Orders stromen automatisch ons WMS in, zodat je met realtime inzicht in voorraad en verzending werkt zonder handmatig overtypen.</p>
-        <div class="hero-actions">
+        <div class="sa-actions">
           <a class="btn btn-primary" href="/contact">Vraag een koppeling aan <span aria-hidden="true">→</span></a>
           <a class="btn btn-ghost" href="/tarieven">Bekijk de tarieven</a>
         </div>
