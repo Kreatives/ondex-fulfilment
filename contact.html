@@ -7111,6 +7111,8 @@ html body .hero-video{
   pointer-events:none!important;
 }
 @media(max-width:760px){html body .hero-video{display:none!important;}}
+/* Hero-kop: exact dezelfde spec als contact + subpagina's (consistent lettertype/formaat) */
+html body .hero h1{font-size:clamp(46px,4.9vw,72px)!important;font-weight:850!important;letter-spacing:-.055em!important;line-height:1.0!important;}
 
 /* Contact-widget in referentie-stijl (horizontale pill + uitklappaneel) */
 html body .support-widget{
@@ -7323,7 +7325,7 @@ html body .reviews-summary > a{border-radius:999px!important;}
 .cl-hero{position:relative;padding:96px 0 92px;border-bottom:1px solid #e4ecee;background:linear-gradient(135deg,#fbfdfd 0%,#fff 48%,#ecf9fa 100%)}
 .cl-hero::before{content:"";position:absolute;right:-160px;top:-300px;width:720px;height:720px;border-radius:50%;background:radial-gradient(circle,rgba(8,182,198,.15),rgba(8,182,198,.025) 47%,transparent 68%)}
 .cl-hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.12fr) minmax(360px,.68fr);align-items:center;gap:84px}
-.cl-hero h1{max-width:760px;margin:0!important;color:var(--cl-ink)!important;font-size:clamp(54px,5.8vw,80px)!important;font-weight:850!important;line-height:.95!important;letter-spacing:-.066em!important}
+.cl-hero h1{max-width:760px;margin:0!important;color:var(--cl-ink)!important;font-size:clamp(46px,4.9vw,72px)!important;font-weight:850!important;line-height:1.0!important;letter-spacing:-.055em!important}
 .cl-hero h1 em{display:block;color:var(--cl-cyan)!important;font-style:normal}
 .cl-hero-copy>p{max-width:650px;margin:28px 0 0!important;color:var(--cl-copy)!important;line-height:1.75!important}
 .cl-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
@@ -7419,7 +7421,7 @@ html body .reviews-summary > a{border-radius:999px!important;}
 .cl-faq-grid{grid-template-columns:1fr;gap:46px}}
 @media(max-width:620px){.cl-page .cl-container{width:min(100% - 28px,1180px)}
 .cl-hero{padding:60px 0 58px}
-.cl-hero h1{font-size:45px!important;line-height:.98!important}
+.cl-hero h1{line-height:1.0!important}
 .cl-hero-copy>p{font-size:14px!important}
 .cl-actions{display:grid}
 .cl-btn{width:100%}

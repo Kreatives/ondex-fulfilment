@@ -17,7 +17,7 @@ site_scoped=scope(site_src,'main')
 
 OVERRIDES=r"""
 /* === Ondex consistent designsysteem: content exact in homepage-stijl === */
-html body main .page-hero h1{font-size:clamp(44px,4.6vw,66px)!important;font-weight:850!important;letter-spacing:-.05em!important;line-height:1.02!important;}
+html body main .page-hero h1{font-size:clamp(46px,4.9vw,72px)!important;font-weight:850!important;letter-spacing:-.055em!important;line-height:1.0!important;}
 html body main h2{font-size:clamp(30px,3vw,44px)!important;font-weight:800!important;letter-spacing:-.04em!important;line-height:1.06!important;}
 html body main h3{font-size:clamp(20px,1.5vw,23px)!important;font-weight:750!important;letter-spacing:-.02em!important;line-height:1.2!important;}
 html body main p{font-size:16px!important;line-height:1.7!important;}
