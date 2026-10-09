@@ -7100,7 +7100,15 @@ html body .pro-person-copy .ondx-personal-contact-label{
 /* Hero: nieuwe cinematic achtergrond */
 html body .hero-bg{
   background:url("assets/images/hero-bg.png") center center/cover no-repeat!important;
+  overflow:hidden!important;
 }
+/* Hero: achtergrondvideo achter de overlay (tekstcontrast blijft) */
+html body .hero-video{
+  position:absolute!important;inset:0!important;width:100%!important;height:100%!important;
+  object-fit:cover!important;object-position:center 42%!important;display:block!important;
+  pointer-events:none!important;
+}
+@media(max-width:760px){html body .hero-video{display:none!important;}}
 
 /* Contact-widget in referentie-stijl (horizontale pill + uitklappaneel) */
 html body .support-widget{
@@ -7365,7 +7373,11 @@ html body .reviews-summary > a{border-radius:999px!important;}
 </header>
 <main>
 <section class="hero" id="top">
-  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-bg" aria-hidden="true">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/video/ondex-hero-poster.jpg">
+      <source src="assets/video/ondex-hero.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-overlay" aria-hidden="true"></div>
 
   <div class="container hero-inner">
